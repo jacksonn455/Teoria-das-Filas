@@ -23,6 +23,9 @@ botaoAdicionar.addEventListener("click", function (event) {
     MediaSistemaA = calcMediaSistA(RespChegadaA, RespServicoA);
     MediaSistemaB = calcMediaSistB(RespChegadaB, RespServicoB);
     MediaSistemaC = calcMediaSistC(RespChegadaC, RespServicoC);
+    TaxamediaSisA = calcTaxaMediaA(RespChegadaA, RespServicoA);
+    TaxamediaSisB = calcTaxaMediaB(RespChegadaB, RespServicoB);
+    TaxamediaSisC = calcTaxaMediaC(RespChegadaC, RespServicoC);
 
     var chegadaRespostaA = document.querySelector("#RespChegadaA");
     chegadaRespostaA.value  = RespChegadaA
@@ -61,7 +64,32 @@ botaoAdicionar.addEventListener("click", function (event) {
     var taxaMediaC = document.querySelector("#tempoC");
     taxaMediaC.value = -MediaSistemaC
 
+    var taxaSistMediaA = document.querySelector("#taxaMediA");
+    taxaSistMediaA.value = TaxamediaSisA 
+
+    var taxaSistMediaB = document.querySelector("#taxaMediB");
+    taxaSistMediaB.value = TaxamediaSisB 
+
+    var taxaSistMediaC = document.querySelector("#taxaMediC");
+    taxaSistMediaC.value = TaxamediaSisC 
+
 });
+
+function calcTaxaMediaA(RespChegadaA, RespServicoA){
+    var media =  (RespChegadaA / RespServicoA);
+    return media.toFixed(2);
+}
+
+function calcTaxaMediaB(RespChegadaB, RespServicoB){
+    var media =  (RespChegadaB / RespServicoB);
+    return media.toFixed(2);
+}
+
+
+function calcTaxaMediaC(RespChegadaC, RespServicoC){
+    var media =  (RespChegadaC / RespServicoC);
+    return media.toFixed(2);
+}
 
 function calcMediaSistA(RespChegadaA, RespServicoA){
     var media = 1 / (RespChegadaA - RespServicoA);
