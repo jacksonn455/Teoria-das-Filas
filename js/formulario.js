@@ -11,72 +11,122 @@ botaoAdicionar.addEventListener("click", function (event) {
     var servicoC = document.querySelector("#servicoC").value;
     var clienteProb = document.querySelector("#clienteProb").value;
 
-    RespChegadaC = calcularResC(chegadaC);
-    RespChegadaB = calcularResB(chegadaB);
-    RespChegadaA = calcularResA(chegadaA);
-    RespServicoA = calcularResA(servicoA);
-    RespServicoB = calcularResB(servicoB);
-    RespServicoC = calcularResC(servicoC);
+    RespChegadaC = calcularResC(chegadaC, tempo);
+    RespChegadaB = calcularResB(chegadaB, tempo);
+    RespChegadaA = calcularResA(chegadaA, tempo);
+    RespServicoA = calcularResA(servicoA, tempo);
+    RespServicoB = calcularResB(servicoB, tempo);
+    RespServicoC = calcularResC(servicoC, tempo);
+    MediaA = calcMediaA(RespServicoA, RespChegadaA);
+    MediaB = calcMediaB(RespServicoB, RespChegadaB);
+    MediaC = calcMediaC(RespServicoC, RespChegadaC);
+    MediaSistemaA = calcMediaSistA(RespChegadaA, RespServicoA);
+    MediaSistemaB = calcMediaSistB(RespChegadaB, RespServicoB);
+    MediaSistemaC = calcMediaSistC(RespChegadaC, RespServicoC);
 
     var chegadaRespostaA = document.querySelector("#RespChegadaA");
-    chegadaRespostaA.textContent  = RespChegadaA
-    console.log(chegadaRespostaA.textContent = RespChegadaA);
+    chegadaRespostaA.value  = RespChegadaA
 
     var chegadaRespostaB = document.querySelector("#RespChegadaB");
-    chegadaRespostaB.textContent  = RespChegadaB
-    console.log(chegadaRespostaB.textContent = RespChegadaB);
+    chegadaRespostaB.value  = RespChegadaB
 
     var chegadaRespostaC = document.querySelector("#RespChegadaC");
-    chegadaRespostaC.textContent  = RespChegadaC
-    console.log(chegadaRespostaC.textContent = RespChegadaC);
+    chegadaRespostaC.value  = RespChegadaC
 
     var servicoRespostaA = document.querySelector("#RespServA");
-    servicoRespostaA.textContent  = RespServicoA
-    console.log(servicoRespostaA.textContent = RespServicoA);
+    servicoRespostaA.value  = RespServicoA
 
     var servicoRespostaB = document.querySelector("#RespServB");
-    servicoRespostaB.textContent  = RespServicoB
-    console.log(servicoRespostaB.textContent =RespServicoB);
+    servicoRespostaB.value = RespServicoB
+
 
     var servicoRespostaC = document.querySelector("#RespServC");
-    servicoRespostaC.textContent = RespServicoC
-    console.log(servicoRespostaC.textContent =RespServicoC);
+    servicoRespostaC.value = RespServicoC
+
+    var carroA = document.querySelector("#carroA");
+    carroA.value = MediaA;
+
+    var carroB = document.querySelector("#carroB");
+    carroB.value = MediaB;
+
+    var carroC = document.querySelector("#carroC");
+    carroC.value = MediaC;
+
+    var taxaMediaA = document.querySelector("#tempoA");
+    taxaMediaA.value = -MediaSistemaA
+
+    var taxaMediaB = document.querySelector("#tempoB");
+    taxaMediaB.value = -MediaSistemaB
+
+    var taxaMediaC = document.querySelector("#tempoC");
+    taxaMediaC.value = -MediaSistemaC
 
 });
 
-function calcularResA(servicoA) {
+function calcMediaSistA(RespChegadaA, RespServicoA){
+    var media = 1 / (RespChegadaA - RespServicoA);
+    return media.toFixed(2);
+}
+
+function calcMediaSistB(RespChegadaB, RespServicoB){
+    var media = 1 / (RespChegadaB - RespServicoB);
+    return media.toFixed(2);
+}
+
+function calcMediaSistC(RespChegadaC, RespServicoC){
+    var media = 1 / (RespChegadaC - RespServicoC);
+    return media.toFixed(2);
+}
+
+function calcMediaA(RespChegadaA, RespServicoA){
+    var media = RespServicoA / (RespChegadaA - RespServicoA);
+    return media.toFixed(2);
+}
+
+function calcMediaB(RespChegadaB, RespServicoB){
+    var media = RespServicoB / (RespChegadaB - RespServicoB);
+    return media.toFixed(2);
+}
+
+function calcMediaC(RespChegadaC, RespServicoC){
+    var media = RespServicoC / (RespChegadaC - RespServicoC);
+    return media.toFixed(2);
+}
+
+
+function calcularResA(servicoA, tempo) {
     var RespServicoA = 0;
-    RespServicoA = 60 / servicoA;
+    RespServicoA = tempo / servicoA;
     return RespServicoA.toFixed(2);
 }
 
 
-function calcularResB(servicoB) {
+function calcularResB(servicoB, tempo) {
     var RespServicoB = 0;
-    RespServicoB = 60 / servicoB;
+    RespServicoB = tempo / servicoB;
     return RespServicoB.toFixed(2);
 }
 
-function calcularResC(servicoC) {
+function calcularResC(servicoC, tempo) {
     var RespServicoC = 0;
-    RespServicoC = 60 / servicoC;
+    RespServicoC = tempo / servicoC;
     return RespServicoC.toFixed(2);
 }
 
-function calcularResC(chegadaC) {
+function calcularResC(chegadaC, tempo) {
     var RespChegadaC = 0;
-    RespChegadaC = 60 / chegadaC;
+    RespChegadaC = tempo / chegadaC;
     return RespChegadaC.toFixed(2);
 }
 
-function calcularResB(chegadaB) {
+function calcularResB(chegadaB, tempo) {
     var RespChegadaB = 0;
-    RespChegadaB = 60 / chegadaB;
+    RespChegadaB = tempo / chegadaB;
     return RespChegadaB.toFixed(2);
 }
 
-function calcularResA(chegadaA) {
+function calcularResA(chegadaA, tempo) {
     var RespChegadaA = 0;
-    RespChegadaA = 60 / chegadaA;
+    RespChegadaA = tempo / chegadaA;
     return RespChegadaA.toFixed(2);
 }
