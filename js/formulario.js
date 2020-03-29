@@ -1,3 +1,4 @@
+
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
 botaoAdicionar.addEventListener("click", function (event) {
     event.preventDefault();
@@ -80,10 +81,35 @@ botaoAdicionar.addEventListener("click", function (event) {
 
         var taxaSistMediaC = document.querySelector("#taxaMediC");
         taxaSistMediaC.value = TaxamediaSisC;
-    
-    var mensagensErro = document.querySelector("#mensagens-erro");
-    mensagensErro.innerHTML = "";
-    mensagensErro.value = "";
+
+        var i;
+        var clientesA = [];
+        for (i = 0; i < clienteProb; i++) {
+            clientesA[i] = (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** i);
+            console.log(clientesA[i]);
+        }
+        console.log("-----------A-----------")
+
+        var j;
+        var clientesB = [];
+        for (j = 0; j < clienteProb; j++) {
+            clientesB[j] = (1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** j);
+            console.log(clientesB[j]);
+        }
+        console.log("-----------B-----------")
+
+
+        var k;
+        var clientesC = [];
+        for (k = 0; k < clienteProb; k++) {
+            clientesC[k] = (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** k);
+            console.log(clientesC[k]);
+        }
+        console.log("-----------C-----------")
+
+        var mensagensErro = document.querySelector("#mensagens-erro");
+        mensagensErro.innerHTML = "";
+        mensagensErro.value = "";
     }
 
 
@@ -210,7 +236,7 @@ function validar() {
         erros.push("A chegada (C) não pode ser em branco");
     }
     if (servicoA.length == 0) {
-        erros.push("O serviço (A) não pode ser em branco");    
+        erros.push("O serviço (A) não pode ser em branco");
     }
     if (servicoB.length == 0) {
         erros.push("O serviço (B) não pode ser em branco");
@@ -223,4 +249,18 @@ function validar() {
     }
 
     return erros;
+}
+
+//  console.log((1 - (15 / 20)) * ((15/20) ** 0));
+//  console.log((1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** i));
+function clienteA() {
+    
+}
+
+function clienteB() {
+
+}
+
+function clienteC() {
+
 }
