@@ -81,43 +81,42 @@ botaoAdicionar.addEventListener("click", function (event) {
         var taxaSistMediaC = document.querySelector("#taxaMediC");
         taxaSistMediaC.value = TaxamediaSisC;
 
-        var form = document.querySelector("#form-adiciona");
 
         var pacientes = [
             {
                n: 0,
                p: 0,
-               cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 0).toFixed(2),
+               cenarioA: ((1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 0)).toFixed(2),
                cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 0)).toFixed(2),
-               cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 0).toFixed(2),
+               cenarioC: ((1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 0)).toFixed(2),
            },
            {
                n: 1,
                p: 1,
-               cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 1).toFixed(2),
+               cenarioA: ((1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 1)).toFixed(2),
                cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 1)).toFixed(2),
-               cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 1).toFixed(2),
+               cenarioC: ((1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 1)).toFixed(2),
            },
            {
                n: 2,
                p: 2,
-               cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 2).toFixed(2),
+               cenarioA: ((1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 2)).toFixed(2),
                cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 2)).toFixed(2),
-               cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 2).toFixed(2),
+               cenarioC: ((1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 2)).toFixed(2),
            },
            {
                n: 3,
                p: 3,
-               cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 3).toFixed(2),
+               cenarioA: ((1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 3)).toFixed(2),
                cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 3)).toFixed(2),
-               cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 3).toFixed(2),
+               cenarioC: ((1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 3)).toFixed(2),
            },
            {
                n: 4,
                p: 4,
-               cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 4).toFixed(2),
+               cenarioA: ((1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 4)).toFixed(2),
                cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 4)).toFixed(2),
-               cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 4).toFixed(2),
+               cenarioC: ((1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 4)).toFixed(2),
            }
         ]
         
@@ -294,44 +293,44 @@ function validar() {
       console.log(clientesC[i]);
   } */
 
-  /*
-        var paciente = [
-         {
-            n: 0,
-            p: 0,
-            cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 0).toFixed(2),
-            cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 0)).toFixed(2),
-            cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 0).toFixed(2),
-        },
-        {
-            n: 1,
-            p: 1,
-            cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 1).toFixed(2),
-            cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 1)).toFixed(2),
-            cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 1).toFixed(2),
-        },
-        {
-            n: 2,
-            p: 2,
-            cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 2).toFixed(2),
-            cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 2)).toFixed(2),
-            cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 2).toFixed(2),
-        },
-        {
-            n: 3,
-            p: 3,
-            cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 3).toFixed(2),
-            cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 3)).toFixed(2),
-            cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 3).toFixed(2),
-        },
-        {
-            n: 4,
-            p: 4,
-            cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 4).toFixed(2),
-            cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 4)).toFixed(2),
-            cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 4).toFixed(2),
-        }
-    ]
-        return paciente;
+/*
+      var paciente = [
+       {
+          n: 0,
+          p: 0,
+          cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 0).toFixed(2),
+          cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 0)).toFixed(2),
+          cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 0).toFixed(2),
+      },
+      {
+          n: 1,
+          p: 1,
+          cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 1).toFixed(2),
+          cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 1)).toFixed(2),
+          cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 1).toFixed(2),
+      },
+      {
+          n: 2,
+          p: 2,
+          cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 2).toFixed(2),
+          cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 2)).toFixed(2),
+          cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 2).toFixed(2),
+      },
+      {
+          n: 3,
+          p: 3,
+          cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 3).toFixed(2),
+          cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 3)).toFixed(2),
+          cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 3).toFixed(2),
+      },
+      {
+          n: 4,
+          p: 4,
+          cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 4).toFixed(2),
+          cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 4)).toFixed(2),
+          cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 4).toFixed(2),
+      }
+  ]
+      return paciente;
 }
-  */
+*/
