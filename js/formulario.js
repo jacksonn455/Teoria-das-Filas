@@ -1,4 +1,3 @@
-
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
 botaoAdicionar.addEventListener("click", function (event) {
     event.preventDefault();
@@ -84,59 +83,61 @@ botaoAdicionar.addEventListener("click", function (event) {
 
         var form = document.querySelector("#form-adiciona");
 
-        var paciente = obtemPacienteDoFormulario(form);
-
-        var pacienteTr = montaTr(paciente);
-
-        adicionaPacienteNaTabela(paciente);
+        var pacientes = [
+            {
+               n: 0,
+               p: 0,
+               cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 0).toFixed(2),
+               cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 0)).toFixed(2),
+               cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 0).toFixed(2),
+           },
+           {
+               n: 1,
+               p: 1,
+               cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 1).toFixed(2),
+               cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 1)).toFixed(2),
+               cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 1).toFixed(2),
+           },
+           {
+               n: 2,
+               p: 2,
+               cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 2).toFixed(2),
+               cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 2)).toFixed(2),
+               cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 2).toFixed(2),
+           },
+           {
+               n: 3,
+               p: 3,
+               cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 3).toFixed(2),
+               cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 3)).toFixed(2),
+               cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 3).toFixed(2),
+           },
+           {
+               n: 4,
+               p: 4,
+               cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 4).toFixed(2),
+               cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 4)).toFixed(2),
+               cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 4).toFixed(2),
+           }
+        ]
+        
+        var tbody = document.querySelector('tbody');
+        
+        pacientes.forEach(function (paciente) {
+            var tr = document.createElement('tr');
+            for (var campo in paciente) {
+                var td = document.createElement('td');
+                td.innerHTML = paciente[campo];
+                tr.appendChild(td);
+            };
+            tbody.appendChild(tr);
+        });
 
         var mensagensErro = document.querySelector("#mensagens-erro");
         mensagensErro.innerHTML = "";
         mensagensErro.value = "";
     }
-
-
 });
-
-function obtemPacienteDoFormulario() {
-
-        var paciente = {
-            n: 1,
-            p: 1,
-            cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 0),
-            cenarioB: (1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 0),
-            cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 0),
-        }
-        return paciente;
-}
-
-function montaTr(paciente) {
-    var pacienteTr = document.createElement("tr");
-    pacienteTr.classList.add("paciente");
-
-        pacienteTr.appendChild(montaTd(paciente.n, "info-n"));
-        pacienteTr.appendChild(montaTd(paciente.p, "info-pes"));
-        pacienteTr.appendChild(montaTd(paciente.cenarioA, "info-cenarioA"));
-        pacienteTr.appendChild(montaTd(paciente.cenarioB, "info-cenarioB"));
-        pacienteTr.appendChild(montaTd(paciente.cenarioC, "info-cenarioC"));
-
-    return pacienteTr;
-}
-
-function montaTd(dado, classe) {
-    var td = document.createElement("td");
-    td.classList.add(classe);
-    td.textContent = dado;
-
-    return td;
-}
-
-
-function adicionaPacienteNaTabela(paciente) {
-    var pacienteTr = montaTr(paciente);
-    var tabela = document.querySelector("#tabela-pacientes");
-    tabela.appendChild(pacienteTr);
-}
 
 
 function calcTaxaMediaA(RespChegadaA, RespServicoA) {
@@ -275,8 +276,11 @@ function validar() {
     return erros;
 }
 
+
 //  console.log((1 - (15 / 20)) * ((15/20) ** 0));
 //  console.log((1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** i));
+
+
 /*  var i;
   var clientesA = [];
   var clientesB = [];
@@ -289,3 +293,45 @@ function validar() {
       console.log(clientesB[i]);
       console.log(clientesC[i]);
   } */
+
+  /*
+        var paciente = [
+         {
+            n: 0,
+            p: 0,
+            cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 0).toFixed(2),
+            cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 0)).toFixed(2),
+            cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 0).toFixed(2),
+        },
+        {
+            n: 1,
+            p: 1,
+            cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 1).toFixed(2),
+            cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 1)).toFixed(2),
+            cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 1).toFixed(2),
+        },
+        {
+            n: 2,
+            p: 2,
+            cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 2).toFixed(2),
+            cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 2)).toFixed(2),
+            cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 2).toFixed(2),
+        },
+        {
+            n: 3,
+            p: 3,
+            cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 3).toFixed(2),
+            cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 3)).toFixed(2),
+            cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 3).toFixed(2),
+        },
+        {
+            n: 4,
+            p: 4,
+            cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 4).toFixed(2),
+            cenarioB: ((1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 4)).toFixed(2),
+            cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 4).toFixed(2),
+        }
+    ]
+        return paciente;
+}
+  */
