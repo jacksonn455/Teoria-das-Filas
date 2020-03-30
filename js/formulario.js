@@ -82,30 +82,13 @@ botaoAdicionar.addEventListener("click", function (event) {
         var taxaSistMediaC = document.querySelector("#taxaMediC");
         taxaSistMediaC.value = TaxamediaSisC;
 
-        var i;
-        var clientesA = [];
-        for (i = 0; i < clienteProb; i++) {
-            clientesA[i] = (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** i);
-            console.log(clientesA[i]);
-        }
-        console.log("-----------A-----------")
+        var form = document.querySelector("#form-adiciona");
 
-        var j;
-        var clientesB = [];
-        for (j = 0; j < clienteProb; j++) {
-            clientesB[j] = (1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** j);
-            console.log(clientesB[j]);
-        }
-        console.log("-----------B-----------")
+        var paciente = obtemPacienteDoFormulario(form);
 
+        var pacienteTr = montaTr(paciente);
 
-        var k;
-        var clientesC = [];
-        for (k = 0; k < clienteProb; k++) {
-            clientesC[k] = (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** k);
-            console.log(clientesC[k]);
-        }
-        console.log("-----------C-----------")
+        adicionaPacienteNaTabela(paciente);
 
         var mensagensErro = document.querySelector("#mensagens-erro");
         mensagensErro.innerHTML = "";
@@ -114,6 +97,47 @@ botaoAdicionar.addEventListener("click", function (event) {
 
 
 });
+
+function obtemPacienteDoFormulario() {
+
+        var paciente = {
+            n: 1,
+            p: 1,
+            cenarioA: (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** 0),
+            cenarioB: (1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** 0),
+            cenarioC: (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** 0),
+        }
+        return paciente;
+}
+
+function montaTr(paciente) {
+    var pacienteTr = document.createElement("tr");
+    pacienteTr.classList.add("paciente");
+
+        pacienteTr.appendChild(montaTd(paciente.n, "info-n"));
+        pacienteTr.appendChild(montaTd(paciente.p, "info-pes"));
+        pacienteTr.appendChild(montaTd(paciente.cenarioA, "info-cenarioA"));
+        pacienteTr.appendChild(montaTd(paciente.cenarioB, "info-cenarioB"));
+        pacienteTr.appendChild(montaTd(paciente.cenarioC, "info-cenarioC"));
+
+    return pacienteTr;
+}
+
+function montaTd(dado, classe) {
+    var td = document.createElement("td");
+    td.classList.add(classe);
+    td.textContent = dado;
+
+    return td;
+}
+
+
+function adicionaPacienteNaTabela(paciente) {
+    var pacienteTr = montaTr(paciente);
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
+}
+
 
 function calcTaxaMediaA(RespChegadaA, RespServicoA) {
     var media = (RespChegadaA / RespServicoA);
@@ -253,14 +277,15 @@ function validar() {
 
 //  console.log((1 - (15 / 20)) * ((15/20) ** 0));
 //  console.log((1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** i));
-function clienteA() {
-    
-}
-
-function clienteB() {
-
-}
-
-function clienteC() {
-
-}
+/*  var i;
+  var clientesA = [];
+  var clientesB = [];
+  var clientesC = [];
+  for (i = 0; i < clienteProb; i++) {
+      clientesA[i] = (1 - (RespChegadaA / RespServicoA)) * ((RespChegadaA / RespServicoA) ** i);
+      clientesB[i] = (1 - (RespChegadaB / RespServicoB)) * ((RespChegadaB / RespServicoB) ** i);
+      clientesC[i] = (1 - (RespChegadaC / RespServicoC)) * ((RespChegadaC / RespServicoC) ** i);
+      console.log(clientesA[i]);
+      console.log(clientesB[i]);
+      console.log(clientesC[i]);
+  } */

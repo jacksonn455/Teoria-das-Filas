@@ -34,41 +34,41 @@
             <form id="form-adiciona" name="formularioAdiciona">
                 <div>
                     <label for="tempo">Tempo estimado:</label>
-                    <input type="number"  id="tempo" name="tempo" placeholder="digite o tempo em minutos" class="campo">
+                    <input type="number"  id="tempo" name="tempo" placeholder="digite o tempo em minutos" class="campo" value="60">
                 </div>
                 <div>
                     <label class="chegada" for="chegada">Chegadas</label>
                 </div>
                 <div class="grupo">
                     <label for="chegadaA">A:</label>
-                    <input type="number"   id="chegadaA" name="chegadaA" placeholder="" class="campo">
+                    <input type="number"   id="chegadaA" name="chegadaA" placeholder="" class="campo" value="4.00">
                 </div>
                 <div class="grupo">
                     <label for="chegadaB">B:</label>
-                    <input type="number"  id="chegadaB" name="chegadaB" placeholder="" class="campo campo-medio">
+                    <input type="number"  id="chegadaB" name="chegadaB" placeholder="" class="campo campo-medio" value="3.33">
                 </div>
                 <div class="grupo">
                     <label for="chegadaC">C:</label>
-                    <input type="number"   id="chegadaC" name="chegadaC" placeholder="" class="campo campo-medio">
+                    <input type="number"   id="chegadaC" name="chegadaC" placeholder="" class="campo campo-medio" value="6.00">
                 </div>   
                 <div>
                     <label for="chegada">Serviços</label>
                 </div>
                 <div class="grupo">
                     <label for="servicoA">A:</label>
-                    <input type="number"   id="servicoA" name="servicoA" placeholder="" class="campo">
+                    <input type="number"   id="servicoA" name="servicoA" placeholder="" class="campo" value="3.00">
                 </div>
                 <div class="grupo">
                     <label for="servicoB">B:</label>
-                    <input type="number"   id="servicoB" name="servicoB" placeholder="" class="campo campo-medio">
+                    <input type="number"   id="servicoB" name="servicoB" placeholder="" class="campo campo-medio" value="3.00">
                 </div>
                 <div class="grupo">
                     <label for="servicoC">C:</label>
-                    <input type="number"   id="servicoC" name="servicoC" placeholder="" class="campo campo-medio">
+                    <input type="number"   id="servicoC" name="servicoC" placeholder="" class="campo campo-medio" value="3.00">
                 </div>   
                 <div>
                     <label class="cliente" for="clienteProb">Probabilidade de clientes</label>
-                    <input type="number"   id="clienteProb" name="clienteProb" type="text" placeholder="probabilidade máxima" class="campo cliente">
+                    <input type="number"   id="clienteProb" name="clienteProb" type="text" placeholder="probabilidade máxima" class="campo cliente" value="5">
                 </div>
                 <button id="adicionar-paciente" class="botao bto-principal">Simular</button>
                 <div>
@@ -149,7 +149,24 @@
             </form>
             </div>
         </section>
-    </main>
+
+		<section class="container" id="tabela">
+			<h2>Probabilidade de clientes</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>N</th>
+						<th>P(x)</th>
+						<th>Cenário A</th>
+						<th>Cenário B</th>
+						<th>Cenário C</th>
+					</tr>
+				</thead>
+				<tbody id="tabela-pacientes">
+				</tbody>
+			</table>
+        </section>
+        
     <script src="js/formulario.js"></script>
 </body>
 

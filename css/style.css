@@ -86,9 +86,35 @@ button[disabled=disabled], button:disabled {
 
 }
 
-#mensagens-erro {
-    margin-top: 20px;
-    color: red;
+.adicionar-paciente{
+    margin-top: 30px;
+}
+
+.campo-invalido{
+	border: 1px solid red;
+}
+
+#mensagens-erro{
+	color: red;
+}
+
+.paciente-invalido{
+	background-color: lightcoral;
+}
+
+.fadeOut{
+	opacity: 0;
+	transition: 0.5s;
+}
+
+#filtrar-tabela{
+	width: 200px;
+	height: 35px;
+	margin-bottom: 10px;
+}
+
+.invisivel{
+	display: none;
 }
 
 .grid-container {
@@ -96,6 +122,7 @@ button[disabled=disabled], button:disabled {
     grid-template-columns: auto auto auto;
     padding: 10px;
   }
+
   .grid-item {
     background-color: #9370DB;
     border: 1px solid rgba(0, 0, 0, 0.8);
@@ -103,3 +130,51 @@ button[disabled=disabled], button:disabled {
     font-size: 30px;
     text-align: center;
   }
+
+*{
+	box-sizing: border-box;
+ }
+
+
+.container{
+	width: 60%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+section{
+	margin: 2em 0;
+	overflow: hidden;
+}
+
+section h2{
+	font-size: 3em;
+	display: block;
+	padding-bottom: .5em;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: .5em;
+}
+
+table{
+	width: 100%;
+	margin-bottom : .5em;
+    table-layout: fixed;
+
+}
+
+td, th {
+	padding: .7em;
+	margin: 0;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+th{
+	font-weight: bold;
+	background-color: #EEE;
+}
+
+#tabela{
+    margin-bottom: 100px;
+}
+
