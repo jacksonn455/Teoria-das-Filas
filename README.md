@@ -7,7 +7,7 @@ exercícios anteriores.
 - Utilize uma linguagem de programação que permita a implementação de uma interface.
 - Programa desenvolvido em Javascript puro
 
-- Acesso em: https://jacksonn455.github.io/Simulacao/
+- Acesso em: https://jacksonn455.github.io/Teoria-das-Filas/
 
 ## Autor
 
